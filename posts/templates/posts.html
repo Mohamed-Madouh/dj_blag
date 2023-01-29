@@ -1,0 +1,4 @@
+<h1>Blag</h1>
+{% for post in mohamed %}
+    <h3><a href="{%url 'single_post' post.id %}">{{post}} - {{post.content}}</a></h3>
+{% endfor %} 
