@@ -15,9 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from posts.views import all_posts , single_post
+from posts.views import all_posts , single_post , Edit_post , delete_post , new_post
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blag/', all_posts , name = 'all_posts'),
-    path('blag/<int:id>', single_post, name ='single_post')
+    path('blag/<int:id>', single_post, name ='single_post'),
+    path('blag/new', new_post , name = 'new_posts'),
+    path('blag/<int:id>/edit', Edit_post, name ='Edit_post'),
+    path('blag/<int:id>/delete', delete_post, name ='delete_post'),
+    
 ]
