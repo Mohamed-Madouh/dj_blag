@@ -24,7 +24,9 @@ def Edit_post  (requset,id ):
     if requset.method =='POST':
         form = postfrom(requset.POST)
         if form.is_valid():
-            form.save()
+           myform= form.save(commit=False)
+           myform.author =requset.user
+           myform.save()
     else:
         form = postfrom(instance=post1)
     return render(requset, 'edit.html',{'form': form})
